@@ -1,9 +1,7 @@
 ---
-- name: Wait until the lock file is removed
-  wait_for:
-    path: /var/lib/dpkg/lock-frontend
-    state: absent
-    timeout: 720
+- name: Kill all apt commands
+  command: killall apt apt-get
+  become: true
 
 - name: install unzip
   become: yes
@@ -16,3 +14,7 @@
     install_recommends: false
   tags:
     - unzip
+
+- name: Update the packages
+  command: apt-get update 
+  become: true
