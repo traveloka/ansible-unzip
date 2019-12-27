@@ -1,20 +1,5 @@
 ---
-- name: Kill all apt commands
-  command: killall apt apt-get
+- name: Install unzip command
+  command: apt-get install unzip -y
   become: true
 
-- name: install unzip
-  become: yes
-  become_method: sudo
-  apt:
-    name: unzip
-    state: present
-    update_cache: yes
-    cache_valid_time: "{{ apt_cache_valid_time|default(omit) }}"
-    install_recommends: false
-  tags:
-    - unzip
-
-- name: Update the packages
-  command: apt-get update 
-  become: true
