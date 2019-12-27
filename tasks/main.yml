@@ -3,7 +3,7 @@
   wait_for:
     path: /var/lib/dpkg/lock-frontend
     state: absent
-    timeout: 300
+    timeout: 720
 
 - name: install unzip
   become: yes
