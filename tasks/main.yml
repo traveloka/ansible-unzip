@@ -1,7 +1,7 @@
 ---
 - name: Wait until the lock file is removed
   wait_for:
-    path: /var/lock/file.lock
+    path: /var/lib/dpkg/lock-frontend
     state: absent
 
 - name: install unzip
