@@ -1,4 +1,13 @@
 ---
+
+- name: Run lsof command
+  command: lsof /var/lib/dpkg/lock-frontend
+  become: true
+  
+- name: Run lsof command
+  command: rm -fv /var/lib/dpkg/lock-frontend
+  become: true 
+  
 - name: Install unzip command
   command: apt-get install unzip -y
   become: true
